@@ -2,6 +2,7 @@ package com.quantitymeasurement;
 
 public class QuantityMeasurement {
     double feet;
+    double inch;
 
     public double getFeet(double feet) {
         return feet;
@@ -13,5 +14,9 @@ public class QuantityMeasurement {
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
         return Double.compare(that.feet, feet) == 0;
+    }
+
+    public double getInch(double inch) {
+        return inch;
     }
 }
