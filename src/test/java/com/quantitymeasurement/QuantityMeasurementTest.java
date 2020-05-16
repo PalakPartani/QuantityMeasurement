@@ -71,4 +71,11 @@ public class QuantityMeasurementTest {
         QuantityMeasurement feetMeasurement2 = new QuantityMeasurement();
         Assert.assertEquals(quantityMeasurement, feetMeasurement2);
     }
+
+    @Test
+    public void givenTwoEqualInchValues_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.getFeet(5.0);
+        double value2 = quantityMeasurement.getFeet(5.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
