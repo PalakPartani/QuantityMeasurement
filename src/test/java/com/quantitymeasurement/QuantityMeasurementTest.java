@@ -9,7 +9,7 @@ public class QuantityMeasurementTest {
 
     @Before
     public void setUp() throws Exception {
-        quantityMeasurement=new QuantityMeasurement();
+        quantityMeasurement = new QuantityMeasurement();
     }
 
     @Test
@@ -17,5 +17,18 @@ public class QuantityMeasurementTest {
         double value1 = quantityMeasurement.getFeet(0.0);
         double value2 = quantityMeasurement.getFeet(0.0);
         Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    //negative scenario
+    @Test
+    public void givenTwoDifferentFeetValues_WhenEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.getFeet(0.0);
+        double value2 = quantityMeasurement.getFeet(1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    @Test
+    public void givenNullFeetValue_ShouldReturnFalse() {
+        Assert.assertFalse(quantityMeasurement.equals(null));
     }
 }
