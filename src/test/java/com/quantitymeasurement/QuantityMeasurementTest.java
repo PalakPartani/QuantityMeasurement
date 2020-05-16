@@ -65,4 +65,10 @@ public class QuantityMeasurementTest {
     public void givenNullInchValue_ShouldReturnFalse() {
         Assert.assertFalse(quantityMeasurement.equals(null));
     }
+
+    @Test
+    public void givenReferenceObjectForInch_WhenEqual_ShouldReturnTrue() {
+        QuantityMeasurement feetMeasurement2 = new QuantityMeasurement();
+        Assert.assertEquals(quantityMeasurement, feetMeasurement2);
+    }
 }

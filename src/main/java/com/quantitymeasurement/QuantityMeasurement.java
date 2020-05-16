@@ -4,8 +4,12 @@ public class QuantityMeasurement {
     double feet;
     double inch;
 
-    public double getFeet(double feet) {
-        return feet;
+    public double getFeet(double inch) {
+        return inch / 12;
+    }
+
+    public double getInch(double feet) {
+        return feet * 12;
     }
 
     @Override
@@ -14,9 +18,5 @@ public class QuantityMeasurement {
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
         return Double.compare(that.feet, feet) == 0;
-    }
-
-    public double getInch(double inch) {
-        return inch;
     }
 }
