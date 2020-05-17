@@ -134,5 +134,10 @@ public class QuantityMeasurementTest {
         value2 = quantityMeasurement.getConvertedUnit(1.0, Units.YARD);
         Assert.assertNotEquals(value1, value2, 0.0);
     }
-
+    @Test
+    public void givenOneYardAndThirtySixInch_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(1.0, Units.YARD);
+        value2 = quantityMeasurement.getConvertedUnit(36.0, Units.INCH);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
