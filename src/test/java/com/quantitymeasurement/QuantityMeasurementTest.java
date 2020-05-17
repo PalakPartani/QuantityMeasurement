@@ -170,27 +170,30 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTwoInchesAndTwoInch_WhenAdded_ShouldReturnCorrect() {
-            value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
-            value2 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
-           Assert.assertEquals(4.0,value1+value2, 1.0);
+        value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
+        value2 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
+        Assert.assertEquals(4.0, value1 + value2, 1.0);
     }
+
     @Test
     public void givenOneFeetAndTwoInch_WhenAdded_ShouldReturnCorrect() {
         value1 = quantityMeasurement.getConvertedUnit(1, Units.FEET);
         value2 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
-        Assert.assertEquals(14.0,value1+value2, 1.0);
+        Assert.assertEquals(14.0, value1 + value2, 1.0);
     }
+
     @Test
     public void givenOneFeetAndOneFeet_WhenAdded_ShouldReturnCorrect() {
         value1 = quantityMeasurement.getConvertedUnit(1, Units.FEET);
         value2 = quantityMeasurement.getConvertedUnit(1, Units.FEET);
-        Assert.assertEquals(24.0,value1+value2, 1.0);
+        Assert.assertEquals(24.0, value1 + value2, 1.0);
     }
+
     @Test
     public void givenTwoInchAndTwoPtFiveCm_WhenAdded_ShouldReturnCorrect() {
         value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
         value2 = quantityMeasurement.getConvertedUnit(2.5, Units.CM);
-        Assert.assertEquals(3.0,value1+value2, 1.0);
+        Assert.assertEquals(3.0, value1 + value2, 1.0);
     }
 
     //Volumes
@@ -198,13 +201,14 @@ public class QuantityMeasurementTest {
     public void givenOneGallonAndThreePtSevenEightLtrs_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(1, Units.GALLON);
         value2 = quantityMeasurement.getConvertedUnit(3.78, Units.LITRE);
-        Assert.assertEquals(value1,value2, 1.0);
+        Assert.assertEquals(value1, value2, 1.0);
     }
+
     @Test
     public void givenOneLiterAndThousandMl_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(1, Units.LITRE);
         value2 = quantityMeasurement.getConvertedUnit(1000, Units.ML);
-        Assert.assertEquals(value1,value2, 1.0);
+        Assert.assertEquals(value1, value2, 1.0);
     }
 
     //Addition of volumes
@@ -212,14 +216,28 @@ public class QuantityMeasurementTest {
     public void givenOneGallonAndThreePtSevenEightLtrs_WhenAdded_ShouldReturnCorrect() {
         value1 = quantityMeasurement.getConvertedUnit(1, Units.GALLON);
         value2 = quantityMeasurement.getConvertedUnit(3.78, Units.LITRE);
-        Assert.assertEquals(value1,value2, 1.0);
+        Assert.assertEquals(value1, value2, 1.0);
     }
 
     @Test
     public void givenOneLitreAndMl_WhenAdded_ShouldReturnCorrect() {
         value1 = quantityMeasurement.getConvertedUnit(1.0, Units.LITRE);
         value2 = quantityMeasurement.getConvertedUnit(1000.0, Units.ML);
-        Assert.assertEquals(value1,value2, 1.0);
+        Assert.assertEquals(value1, value2, 1.0);
+    }
+
+    //Weights
+    @Test
+    public void givenOneKgAndThousandGrams_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(1.0, Units.KG);
+        value2 = quantityMeasurement.getConvertedUnit(1000.0, Units.GRAMS);
+        Assert.assertEquals(value1, value2, 1.0);
+    }
+    @Test
+    public void givenOneTonneAndThousandKgs_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(1.0, Units.TONNE);
+        value2 = quantityMeasurement.getConvertedUnit(1000.0, Units.KG);
+        Assert.assertEquals(value1, value2, 1.0);
     }
 
 }
