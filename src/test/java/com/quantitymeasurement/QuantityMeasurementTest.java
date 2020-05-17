@@ -192,4 +192,18 @@ public class QuantityMeasurementTest {
         value2 = quantityMeasurement.getConvertedUnit(2.5, Units.CM);
         Assert.assertEquals(3.0,value1+value2, 1.0);
     }
+
+    //Volumes
+    @Test
+    public void givenOneGallonAndThreePtSevenEightLtrs_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(1, Units.GALLON);
+        value2 = quantityMeasurement.getConvertedUnit(3.78, Units.LITRE);
+        Assert.assertEquals(value1,value2, 1.0);
+    }
+    @Test
+    public void givenOneLiterAndThousandMl_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(1, Units.LITRE);
+        value2 = quantityMeasurement.getConvertedUnit(1000, Units.ML);
+        Assert.assertEquals(value1,value2, 1.0);
+    }
 }
