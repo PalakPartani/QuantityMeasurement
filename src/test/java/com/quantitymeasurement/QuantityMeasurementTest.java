@@ -109,4 +109,11 @@ public class QuantityMeasurementTest {
         Assert.assertNotEquals(value1, value2, 0.0);
     }
 
+    @Test
+    public void givenThreeFeetAndOneYard_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.getConvertedUnit(3.0,Units.FEET);
+        double value2 = quantityMeasurement.getConvertedUnit(1.0,Units.YARD);
+        Assert.assertNotEquals(value1, value2, 0.0);
+
+    }
 }
