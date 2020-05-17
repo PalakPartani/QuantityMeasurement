@@ -186,4 +186,10 @@ public class QuantityMeasurementTest {
         value2 = quantityMeasurement.getConvertedUnit(1, Units.FEET);
         Assert.assertEquals(24.0,value1+value2, 1.0);
     }
+    @Test
+    public void givenTwoInchAndTwoPtFiveCm_WhenAdded_ShouldReturnCorrect() {
+        value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
+        value2 = quantityMeasurement.getConvertedUnit(2.5, Units.CM);
+        Assert.assertEquals(3.0,value1+value2, 1.0);
+    }
 }
