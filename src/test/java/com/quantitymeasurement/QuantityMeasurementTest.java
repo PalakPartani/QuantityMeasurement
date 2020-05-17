@@ -165,6 +165,13 @@ public class QuantityMeasurementTest {
         value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
         value2 = quantityMeasurement.getConvertedUnit(5, Units.CM);
         Assert.assertEquals(value1, value2, 1.0);
+    }
+    //Compare lengths in inch
 
+    @Test
+    public void givenTwoInchesAndTwoInch_WhenAdded_ShouldReturnCorrect() {
+            value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
+            value2 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
+           Assert.assertEquals(4.0,value1+value2, 1.0);
     }
 }
