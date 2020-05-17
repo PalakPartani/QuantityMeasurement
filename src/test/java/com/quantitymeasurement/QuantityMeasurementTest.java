@@ -180,4 +180,10 @@ public class QuantityMeasurementTest {
         value2 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
         Assert.assertEquals(14.0,value1+value2, 1.0);
     }
+    @Test
+    public void givenOneFeetAndOneFeet_WhenAdded_ShouldReturnCorrect() {
+        value1 = quantityMeasurement.getConvertedUnit(1, Units.FEET);
+        value2 = quantityMeasurement.getConvertedUnit(1, Units.FEET);
+        Assert.assertEquals(24.0,value1+value2, 1.0);
+    }
 }
