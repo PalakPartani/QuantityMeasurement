@@ -77,4 +77,11 @@ public class QuantityMeasurementTest {
         double value2 = quantityMeasurement.getConvertedUnit(5.0,Units.INCH);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    @Test
+    public void givenZeroFeetAndZeroInch_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.getConvertedUnit(0.0,Units.FEET);
+        double value2 = quantityMeasurement.getConvertedUnit(0.0,Units.INCH);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
