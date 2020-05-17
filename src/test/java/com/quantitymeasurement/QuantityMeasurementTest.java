@@ -14,6 +14,7 @@ public class QuantityMeasurementTest {
         quantityMeasurement = new QuantityMeasurement();
     }
 
+    //Feet
     @Test
     public void givenZeroFeetAndZeroFeetValue_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(0.0, Units.FEET);
@@ -114,6 +115,7 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(value1, value2, 0.0);
     }
 
+    //YARD
     @Test
     public void givenThreeFeetAndOneYard_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(3.0, Units.FEET);
@@ -134,22 +136,35 @@ public class QuantityMeasurementTest {
         value2 = quantityMeasurement.getConvertedUnit(1.0, Units.YARD);
         Assert.assertNotEquals(value1, value2, 0.0);
     }
+
     @Test
     public void givenOneYardAndThirtySixInch_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(1.0, Units.YARD);
         value2 = quantityMeasurement.getConvertedUnit(36.0, Units.INCH);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
     @Test
     public void givenThirtySixAndOneYardInch_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(36.0, Units.INCH);
         value2 = quantityMeasurement.getConvertedUnit(1.0, Units.YARD);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
     @Test
     public void givenOneYardAndThreeFeet_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(1.0, Units.YARD);
         value2 = quantityMeasurement.getConvertedUnit(3.0, Units.FEET);
         Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    //CM
+
+    @Test
+    public void givenTwoInchAndFiveCm_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
+        value2 = quantityMeasurement.getConvertedUnit(5, Units.CM);
+        Assert.assertEquals(value1, value2, 1.0);
+
     }
 }
