@@ -206,4 +206,20 @@ public class QuantityMeasurementTest {
         value2 = quantityMeasurement.getConvertedUnit(1000, Units.ML);
         Assert.assertEquals(value1,value2, 1.0);
     }
+
+    //Addition of volumes
+    @Test
+    public void givenOneGallonAndThreePtSevenEightLtrs_WhenAdded_ShouldReturnCorrect() {
+        value1 = quantityMeasurement.getConvertedUnit(1, Units.GALLON);
+        value2 = quantityMeasurement.getConvertedUnit(3.78, Units.LITRE);
+        Assert.assertEquals(value1,value2, 1.0);
+    }
+
+    @Test
+    public void givenOneLitreAndMl_WhenAdded_ShouldReturnCorrect() {
+        value1 = quantityMeasurement.getConvertedUnit(1.0, Units.LITRE);
+        value2 = quantityMeasurement.getConvertedUnit(1000.0, Units.ML);
+        Assert.assertEquals(value1,value2, 1.0);
+    }
+
 }
