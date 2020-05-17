@@ -1,15 +1,13 @@
 package com.quantitymeasurement;
 
+import com.quantitymeasurement.enums.Units;
+
 public class QuantityMeasurement {
     double feet;
     double inch;
 
-    public double getFeet(double inch) {
-        return inch / 12;
-    }
-
-    public double getInch(double feet) {
-        return feet * 12;
+    public double getConvertedUnit(double unit, Units unitType) {
+        return unit * unitType.unitType;
     }
 
     @Override
@@ -17,6 +15,7 @@ public class QuantityMeasurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        return Double.compare(that.feet, feet) == 0;
+        return Double.compare(that.feet, feet) == 0 &&
+                Double.compare(that.inch, inch) == 0;
     }
 }
