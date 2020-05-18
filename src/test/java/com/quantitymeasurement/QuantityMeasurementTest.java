@@ -24,7 +24,7 @@ public class QuantityMeasurementTest {
 
     //negative scenario
     @Test
-    public void givenTwoDifferentFeetValues_WhenEqual_ShouldReturnFalse() {
+    public void givenTwoDifferentFeetValues_WhenNotEqual_ShouldReturnFalse() {
         value1 = quantityMeasurement.getConvertedUnit(3.0, Units.FEET);
         value2 = quantityMeasurement.getConvertedUnit(1.0, Units.FEET);
         Assert.assertNotEquals(value1, value2, 0.0);
@@ -51,8 +51,8 @@ public class QuantityMeasurementTest {
     @Test
     public void givenZeroInchAndZeroInchValue_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(0.0, Units.INCH);
-        value2 = quantityMeasurement.getConvertedUnit(1.0, Units.INCH);
-        Assert.assertNotEquals(value1, value2, 0.0);
+        value2 = quantityMeasurement.getConvertedUnit(0.0, Units.INCH);
+        Assert.assertEquals(value1, value2, 0.0);
     }
 
     //negative scenario
@@ -80,6 +80,7 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(value1, value2, 0.0);
     }
 
+    //Different units
     @Test
     public void givenZeroFeetAndZeroInch_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(0.0, Units.FEET);
@@ -233,11 +234,19 @@ public class QuantityMeasurementTest {
         value2 = quantityMeasurement.getConvertedUnit(1000.0, Units.GRAMS);
         Assert.assertEquals(value1, value2, 1.0);
     }
+
     @Test
     public void givenOneTonneAndThousandKgs_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(1.0, Units.TONNE);
         value2 = quantityMeasurement.getConvertedUnit(1000.0, Units.KG);
         Assert.assertEquals(value1, value2, 1.0);
+    }
+
+    @Test
+    public void givenOneTonneAndThousandGrams_WhenAdded_ShouldReturnCorrect() {
+        value1 = quantityMeasurement.getConvertedUnit(1.0, Units.TONNE);
+        value2 = quantityMeasurement.getConvertedUnit(1000.0, Units.GRAMS);
+        Assert.assertEquals(1001, value1 + value2, 0.0);
     }
 
 }
