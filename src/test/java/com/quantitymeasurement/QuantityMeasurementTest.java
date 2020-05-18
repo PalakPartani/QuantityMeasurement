@@ -249,4 +249,12 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(1001, value1 + value2, 0.0);
     }
 
+    //Temperature
+    @Test
+    public void givenTwoOneTwoFahrenheitAndHundredCelcius_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(212.0, Units.FAHRENHEIT);
+        value2 = quantityMeasurement.getConvertedUnit(100.0, Units.CELCIUS);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
 }

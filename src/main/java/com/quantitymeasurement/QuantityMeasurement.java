@@ -8,6 +8,8 @@ public class QuantityMeasurement {
     double inch;
 
     public double getConvertedUnit(double unit, Units unitType) {
+        if (unitType.equals(Units.CELCIUS))
+            return unit * unitType.unitType + 32;
         return unit * unitType.unitType;
     }
 
