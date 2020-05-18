@@ -1,4 +1,9 @@
-
+/******************************************
+ * purpose:Conversion of units
+ * @author name:Palak
+ * @version:1.0
+ * @Date:18-05-2020
+ *******************************************/
 package com.quantitymeasurement;
 
 import com.quantitymeasurement.enums.Units;
@@ -7,10 +12,16 @@ public class QuantityMeasurement {
     double feet;
     double inch;
 
-    public double getConvertedUnit(double unit, Units unitType) {
+    /**
+     * @param value    the value to get operated on
+     * @param unitType the type of enum
+     * @return converted value
+     * @purpose:Convert one unit to another
+     */
+    public double getConvertedUnit(double value, Units unitType) {
         if (unitType.equals(Units.CELCIUS))
-            return unit * unitType.unitType + 32;
-        return unit * unitType.unitType;
+            return value * unitType.unitType + 32;
+        return value * unitType.unitType;
     }
 
     @Override
