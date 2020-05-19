@@ -7,10 +7,9 @@
 package com.quantitymeasurement;
 
 import com.quantitymeasurement.enums.Units;
+import com.quantitymeasurement.exception.UnitException;
 
 public class QuantityMeasurement {
-    double feet;
-    double inch;
 
     /**
      * @param value    the value to get operated on
@@ -19,17 +18,15 @@ public class QuantityMeasurement {
      * @purpose:Convert one unit to another
      */
     public double getConvertedUnit(double value, Units unitType) {
+        if (value < 0)
+            throw new UnitException("Negative value not allowed", UnitException.ExceptionType.NEGATIVE_VALUE);
         if (unitType.equals(Units.CELCIUS))
             return value * unitType.unitType + 32;
         return value * unitType.unitType;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        QuantityMeasurement that = (QuantityMeasurement) o;
-        return Double.compare(that.feet, feet) == 0 &&
-                Double.compare(that.inch, inch) == 0;
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

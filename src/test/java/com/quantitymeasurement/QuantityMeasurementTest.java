@@ -1,6 +1,7 @@
 package com.quantitymeasurement;
 
 import com.quantitymeasurement.enums.Units;
+import com.quantitymeasurement.exception.UnitException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,6 +48,17 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(value1, value2, 0.0);
     }
 
+    //Test exception
+    @Test
+    public void givenTwoEqualFeetValues_WhenNegative_ShouldThrowException() {
+        try {
+            value1 = quantityMeasurement.getConvertedUnit(-1.0, Units.FEET);
+            value2 = quantityMeasurement.getConvertedUnit(5.0, Units.FEET);
+        } catch (UnitException e) {
+            Assert.assertEquals(UnitException.ExceptionType.NEGATIVE_VALUE, e.type);
+        }
+    }
+
     //Inch
     @Test
     public void givenZeroInchAndZeroInchValue_WhenEqual_ShouldReturnTrue() {
@@ -55,7 +67,7 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(value1, value2, 0.0);
     }
 
-    //negative scenario
+    //negative scenario for feet
     @Test
     public void givenTwoDifferentInchValues_WhenEqual_ShouldReturnFalse() {
         value1 = quantityMeasurement.getConvertedUnit(2.0, Units.INCH);
@@ -160,15 +172,14 @@ public class QuantityMeasurementTest {
     }
 
     //CM
-
     @Test
     public void givenTwoInchAndFiveCm_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
         value2 = quantityMeasurement.getConvertedUnit(5, Units.CM);
         Assert.assertEquals(value1, value2, 1.0);
     }
-    //Compare lengths in inch
 
+    //Compare lengths in inch
     @Test
     public void givenTwoInchesAndTwoInch_WhenAdded_ShouldReturnCorrect() {
         value1 = quantityMeasurement.getConvertedUnit(2, Units.INCH);
@@ -251,10 +262,16 @@ public class QuantityMeasurementTest {
 
     //Temperature
     @Test
-    public void givenTwoOneTwoFahrenheitAndHundredCelcius_WhenEqual_ShouldReturnTrue() {
+    public void givenTwoOneTwoFahrenheitAndHundredCelsius_WhenEqual_ShouldReturnTrue() {
         value1 = quantityMeasurement.getConvertedUnit(212.0, Units.FAHRENHEIT);
         value2 = quantityMeasurement.getConvertedUnit(100.0, Units.CELCIUS);
         Assert.assertEquals(value1, value2, 0.0);
     }
 
+    @Test
+    public void givenHundredCelsiusTwoOneTwoFahrenheit_WhenEqual_ShouldReturnTrue() {
+        value1 = quantityMeasurement.getConvertedUnit(100.0, Units.CELCIUS);
+        value2 = quantityMeasurement.getConvertedUnit(212.0, Units.FAHRENHEIT);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
 }
